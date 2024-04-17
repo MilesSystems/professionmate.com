@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "include": [
+      "custom.d.ts"
+    ]
+  },
+
+}
