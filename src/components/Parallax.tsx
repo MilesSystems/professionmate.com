@@ -55,8 +55,6 @@ const Parallax: React.FC<PropsWithChildren<ParallaxProps>> = (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white',
-        textShadow: '0 0 5px black'
     };
 
     if (parallaxStyle === eParallaxStyle.SCROLL) {

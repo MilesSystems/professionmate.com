@@ -96,7 +96,7 @@ export default function Home() {
                 <div className={'row'}>
                     <div className={'col-md-6'}>
                         <div className={'card'} style={{
-                            backgroundColor: 'rgba(51,169,204,0.27)',
+                            backgroundColor: 'rgba(51,169,204,0.4)',
                             color: 'whitesmoke'
                         }}>
                             <div className="card-body">
