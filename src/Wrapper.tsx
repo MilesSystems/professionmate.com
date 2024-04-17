@@ -8,7 +8,7 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
 
     return <>
         <nav className="navbar fixed-top navbar-expand-lg" style={{
-            height: "5em",
+            height: "7vh",
             backgroundColor: "whitesmoke",
         }}>
             <div className="container">
@@ -22,7 +22,10 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                         aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarColor02">
+                <div className="collapse navbar-collapse" id="navbarColor02" style={{
+                    backgroundColor: "whitesmoke",
+                    padding: "1em",
+                }}>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
@@ -50,8 +53,8 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                 </div>
             </div>
         </nav>
-        <div className="container-fluid" style={{
-            backgroundColor: "rgba(0,0,0,.9)",
+        <div className="container-fluid g-0" style={{
+            backgroundColor: "whitesmoke",
         }}>
             {children}
         </div>
