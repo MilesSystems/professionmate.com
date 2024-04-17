@@ -1,8 +1,10 @@
+
+
 import isTest from "src/hoc/isTest";
 import {ppr} from "src/hoc/passPropertiesAndRender";
 import Home, {HOME} from "src/Home";
 import {createRoot} from 'react-dom/client';
-import {BrowserRouter, MemoryRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, MemoryRouter, Navigate, Route, Routes} from "react-router-dom";
 import Allies, {ALLIES} from "src/pages/Allies/Allies";
 import Contact, {CONTACT} from "src/pages/Contact/Contact";
 import Pricing, {PRICING} from "src/pages/Pricing/Pricing";
@@ -21,13 +23,13 @@ const reactRouterContext = (children: any) => {
 
     }
 
-    return <BrowserRouter>{children}</BrowserRouter>
+    return <HashRouter>{children}</HashRouter>
 
 }
 
 root.render(reactRouterContext(
     <Routes>
-        <Route path={'*'} element={ppr(Wrapper, {})}>
+        <Route path={'/'} element={ppr(Wrapper, {})}>
             <Route path={HOME} element={ppr(Home, {})}/>
             <Route path={ALLIES} element={ppr(Allies, {})}/>
             <Route path={CONTACT} element={ppr(Contact, {})}/>
