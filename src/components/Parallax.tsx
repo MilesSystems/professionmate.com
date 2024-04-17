@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, PropsWithChildren} from 'react';
 import background from 'assets/dalle12.webp';
 
-export default function Parallax() {
+export default function Parallax({backgroundImage, children}: PropsWithChildren<{
+    backgroundImage?: string
+}>) {
     const [offset, setOffset] = useState(0);
 
     useEffect(() => {
@@ -14,9 +16,9 @@ export default function Parallax() {
 
     return (
         <div style={{
-            backgroundImage: `url(${background})`,
+            backgroundImage: `url(${backgroundImage})`,
             backgroundAttachment: "fixed",
-            backgroundPosition: `center bottom ${30 - offset * 0.05}vh`, // This aligns the image to the bottom initially
+            //backgroundPosition: `center bottom ${30 - offset * 0.05}vh`, // This aligns the image to the bottom initially
             //backgroundPosition: `center calc(100% - ${offset * 0.5}px)`, // Starts from bottom, moves up at half scroll speed
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -27,10 +29,7 @@ export default function Parallax() {
             color: "white",
             textShadow: "0 0 5px black"
         }}>
-            <div className="container">
-                <h1>Welcome to My Site</h1>
-                <p>This is an example of a dynamic parallax effect in Bootstrap 5.</p>
-            </div>
+            {children}
         </div>
     );
 }

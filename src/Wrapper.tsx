@@ -50,9 +50,8 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                 </div>
             </div>
         </nav>
-        <Parallax/>
-        <div className="container" style={{
-            backgroundColor: "green",
+        <div className="container-fluid" style={{
+            backgroundColor: "rgba(0,0,0,.9)",
         }}>
             {children}
         </div>
