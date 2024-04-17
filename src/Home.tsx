@@ -52,6 +52,9 @@ const HomeCards: iHomeCardBody[] = [
 
     }
 ]
+
+export const HOME = 'home/'
+
 export default function Home() {
 
     const allHomeCards = <div className={'row'} style={{
@@ -96,15 +99,18 @@ export default function Home() {
                 <div className={'row'}>
                     <div className={'col-md-6'}>
                         <div className={'card'} style={{
-                            backgroundColor: 'rgba(51,169,204,0.4)',
+                            backgroundColor: 'rgba(51,169,204,0.85)',
                             color: 'whitesmoke'
                         }}>
                             <div className="card-body">
                                 <h1>
-                                    Welcome to Profession Mate
+                                    Welcome to Profession Mate<br/>
+                                    <small><u>#1 Job Searching Agency</u></small>
                                 </h1>
-                                <p>
-                                    We Handle The Entire Job Searching and Applying Process For You!
+                                <p style={{
+                                    fontSize: '1.5em'
+                                }}>
+                                    <b>We Handle The Entire Job Searching and Applying Process For You!</b>
                                 </p>
                             </div>
                         </div>
