@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import Parallax from "src/components/Parallax";
 import {FC, PropsWithChildren} from "react";
 import PM from 'assets/PM.svg'
@@ -30,27 +31,26 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                 </button>
                 <div className={'d-flex justify-content-end'}>
                     <div className="collapse navbar-collapse " id="navbarColor02" style={{
-                        backgroundColor: "whitesmoke",
-                        padding: "1em",
+                        backgroundColor: "whitesmoke"
                     }}>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href={'/' + HOME}>Home</a>
+                                <Link className="nav-link active" aria-current="page" to={'/' + HOME}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href={'/' + SERVICES}>Services</a>
+                                <Link className="nav-link" to={'/' + SERVICES}>Services</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href={'/' + ALLIES}>Allies</a>
+                                <Link className="nav-link" to={'/' + ALLIES}>Allies</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href={'/' + PRICING}>Pricing</a>
+                                <Link className="nav-link" to={'/' + PRICING}>Pricing</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href={'/' + REVIEWS}>Reviews</a>
+                                <Link className="nav-link" to={'/' + REVIEWS}>Reviews</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href={'/' + CONTACT}>Contact</a>
+                                <Link className="nav-link" to={'/' + CONTACT}>Contact</Link>
                             </li>
                         </ul>
                         {/*<form className="d-flex" role="search">

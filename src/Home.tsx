@@ -53,7 +53,7 @@ const HomeCards: iHomeCardBody[] = [
     }
 ]
 
-export const HOME = 'home/'
+export const HOME = '/'
 
 export default function Home() {
 
