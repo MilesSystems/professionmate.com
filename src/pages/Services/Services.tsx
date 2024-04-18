@@ -1,6 +1,6 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import dalle from "assets/dalle18.webp";
+import dalle from "assets/dalle21.webp";
 import Parallax, {eParallaxStyle} from "src/components/Parallax";
 import {faChess} from "@fortawesome/free-solid-svg-icons";
 
