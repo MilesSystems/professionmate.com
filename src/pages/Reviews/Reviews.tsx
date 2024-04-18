@@ -1,4 +1,4 @@
-import dalle from "assets/dalle19.webp";
+import dalle from "assets/dalle24.webp";
 import Parallax, {eParallaxStyle} from "src/components/Parallax";
 
 export const REVIEWS = 'reviews/'

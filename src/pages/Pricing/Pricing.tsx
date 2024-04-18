@@ -1,4 +1,4 @@
-import dalle from "assets/dalle13.webp";
+import dalle from "assets/dalle23.webp";
 import Parallax, {eParallaxStyle} from "src/components/Parallax";
 
 
