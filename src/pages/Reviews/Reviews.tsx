@@ -3,7 +3,7 @@ import Parallax, {eParallaxStyle} from "src/components/Parallax";
 
 export const REVIEWS = 'reviews/'
 export default function Reviews() {
-    return <Parallax height={'97vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
+    return <Parallax height={'100vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
         <div className="container">
             <div className={'row'}>
                 <div className={'card m5'}>

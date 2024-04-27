@@ -4,7 +4,7 @@ import Parallax, {eParallaxStyle} from "src/components/Parallax";
 export const CONTACT = 'contact';
 
 export default function Contact() {
-    return <Parallax height={'97vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
+    return <Parallax height={'110vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
             <div className="container">
                 <div className={'row'}>
                     <div className={'card m5'}>

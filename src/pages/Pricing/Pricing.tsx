@@ -5,7 +5,7 @@ import Parallax, {eParallaxStyle} from "src/components/Parallax";
 export const PRICING = 'pricing/'
 export default function Pricing() {
     return <>
-        <Parallax height={'97vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
+        <Parallax height={'100vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.SCROLL}>
             <div className="container">
                 <div className={'row'}>
                     <div className={'col-md-6'}>

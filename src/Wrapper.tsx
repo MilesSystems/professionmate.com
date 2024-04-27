@@ -16,7 +16,7 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
 
     useEffect(() => {
         const onScroll = () => {
-            const scrolled = window.scrollY > 0;
+            const scrolled = window.scrollY > 50;
             setIsScrolled(scrolled);
         };
 
