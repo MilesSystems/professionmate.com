@@ -57,7 +57,6 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
     return <div style={{
         backgroundImage: `url(${PM})`,
         backgroundColor: "black",
-
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

@@ -1,11 +1,11 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {faChess} from "@fortawesome/free-solid-svg-icons";
-import Apply from "assets/services/Apply.webp";
-import Consulting from "assets/services/Consulting.webp";
-import Mock from "assets/services/Mock.webp";
-import Money from "assets/services/Money.webp";
-import Search from "assets/services/Search.webp";
-import Optimization from "assets/services/Optimization.webp";
+import Apply from "assets/services/apply.webp";
+import Consulting from "assets/services/consulting.webp";
+import Mock from "assets/services/mock.webp";
+import Money from "assets/services/money.webp";
+import Search from "assets/services/search.webp";
+import Optimization from "assets/services/optimization.webp";
 
 interface iService {
     title: string;
