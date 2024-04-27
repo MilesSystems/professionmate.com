@@ -8,7 +8,7 @@ import {CONTACT} from "src/pages/Contact/Contact";
 import {PRICING} from "src/pages/Pricing/Pricing";
 import {REVIEWS} from "src/pages/Reviews/Reviews";
 import {SERVICES} from "src/pages/Services/Services";
-import PmFront from "assets/PM_Front.jpeg";
+//import PmFront from "assets/PM_Front.jpeg";
 
 export default function Wrapper({children}: PropsWithChildren<FC>) {
 
@@ -55,7 +55,7 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
     ]
 
     return <div style={{
-        backgroundImage: `url(${PmFront})`,
+        backgroundImage: `url(${PM})`,
         backgroundColor: "black",
 
         backgroundSize: 'cover',
