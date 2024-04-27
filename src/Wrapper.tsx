@@ -16,7 +16,7 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
 
     useEffect(() => {
         const onScroll = () => {
-            const scrolled = window.scrollY > 50;
+            const scrolled = window.scrollY > 200;
             setIsScrolled(scrolled);
         };
 
@@ -66,13 +66,13 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
         <nav className="navbar fixed-top navbar-expand-lg" style={{
             height: "7vh",
             minHeight: "80px",
-            backgroundColor: isScrolled ? "rgba(255,255,255,0.95)" : "rgba(0,0,0,0.5)",
-            transition: 'background-color 0.5s ease'
+            backgroundColor: isScrolled ? "rgba(255,255,255,0.95)" : "rgba(0,0,0,0.7)",
+            transition: 'background-color 2s ease'
         }}>
             <div className="container">
                 <a className="navbar-brand" href="#" style={{
                     color: isScrolled ? "black" : "whitesmoke",
-                    transition: 'color 0.5s ease',
+                    transition: 'color 2s ease',
                     fontSize: '1.5em'
                 }}>
                     <img src={PM} alt="Logo" width="50" height="44"
