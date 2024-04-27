@@ -51,18 +51,30 @@ const Parallax: React.FC<PropsWithChildren<ParallaxProps>> = (
         backgroundAttachment: parallaxStyle === eParallaxStyle.FIXED ? 'fixed' : 'scroll',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        backgroundColor: 'transparent',
         height: height,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     };
 
-    if (parallaxStyle === eParallaxStyle.SCROLL) {
-        // This value affects the speed of the parallax effect
-        // You might need to adjust the multiplier to get the desired effect
-        const parallaxSpeed = 0.2;
-        style.backgroundPositionY = `calc(50% + ${offset * parallaxSpeed}px)`;
+    const parallaxSpeed = 0.2;
+
+
+    switch (parallaxStyle) {
+        case eParallaxStyle.FIXED:
+            style.backgroundPosition = 'center';
+           // style.backgroundPositionY = `calc( ${offset * parallaxSpeed}px)`;
+            break;
+        case eParallaxStyle.SCROLL:
+            // This value affects the speed of the parallax effect
+            // You might need to adjust the multiplier to get the desired effect
+            style.backgroundPositionY = `calc(25% + ${offset * parallaxSpeed}px)`;
+            style.backgroundSize = '125%'
+            break;
     }
+
+
 
     return (
         <div ref={parallaxRef} style={style}>

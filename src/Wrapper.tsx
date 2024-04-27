@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import Parallax from "src/components/Parallax";
-import {FC, PropsWithChildren} from "react";
+import {FC, PropsWithChildren, useEffect, useState} from "react";
 import PM from 'assets/PM.svg'
 import {HOME} from "src/Home";
 import {ALLIES} from "src/pages/Allies/Allies";
@@ -8,20 +8,75 @@ import {CONTACT} from "src/pages/Contact/Contact";
 import {PRICING} from "src/pages/Pricing/Pricing";
 import {REVIEWS} from "src/pages/Reviews/Reviews";
 import {SERVICES} from "src/pages/Services/Services";
+import PmFront from "assets/PM_Front.jpeg";
 
 export default function Wrapper({children}: PropsWithChildren<FC>) {
 
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const scrolled = window.scrollY > 0;
+            setIsScrolled(scrolled);
+        };
+
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     console.log("Wrapper TSX RENDER");
 
-    return <>
+
+    const headerRightLinks = [
+        {
+            title: 'Home',
+            link: HOME
+        },
+        {
+            title: 'Services',
+            link: SERVICES
+        },
+        {
+            title: 'Allies',
+            link: ALLIES
+        },
+        {
+            title: 'Pricing',
+            link: PRICING
+        },
+        {
+            title: 'Reviews',
+            link: REVIEWS
+        },
+        {
+            title: 'Contact',
+            link: CONTACT
+        }
+    ]
+
+    return <div style={{
+        backgroundImage: `url(${PmFront})`,
+        backgroundColor: "black",
+
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        overflow: 'auto',
+    }}>
         <nav className="navbar fixed-top navbar-expand-lg" style={{
             height: "7vh",
-            backgroundColor: "whitesmoke",
+            minHeight: "80px",
+            backgroundColor: isScrolled ? "rgba(255,255,255,0.95)" : "rgba(0,0,0,0.5)",
+            transition: 'background-color 0.5s ease'
         }}>
             <div className="container">
-                <a className="navbar-brand" href="#">
-                    <img src={PM} alt="Logo" width="30" height="24"
-                         className="d-inline-block align-text-top"/>
+                <a className="navbar-brand" href="#" style={{
+                    color: isScrolled ? "black" : "whitesmoke",
+                    transition: 'color 0.5s ease',
+                    fontSize: '1.5em'
+                }}>
+                    <img src={PM} alt="Logo" width="50" height="44"
+                         className="d-inline-block align-text-center"/>
                     Profession Mate
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -30,28 +85,21 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={'d-flex justify-content-end'}>
-                    <div className="collapse navbar-collapse " id="navbarColor02" style={{
-                        backgroundColor: "whitesmoke"
-                    }}>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to={'/' + HOME}>Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/' + SERVICES}>Services</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/' + ALLIES}>Allies</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/' + PRICING}>Pricing</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/' + REVIEWS}>Reviews</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={'/' + CONTACT}>Contact</Link>
-                            </li>
+                    <div className="collapse navbar-collapse " id="navbarColor02">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex" style={{
+                            color: isScrolled ? "black" : "whitesmoke",
+                            transition: 'color 0.5s ease'
+                        }}>
+                            {headerRightLinks.map(link => <li className="nav-item" style={{
+                                color: isScrolled ? "black" : "whitesmoke",
+                                transition: 'color 0.5s ease'
+                            }}>
+                                <Link className="nav-link active" aria-current="page" to={'/' + link.link} style={{
+                                    color: isScrolled ? "black" : "whitesmoke",
+                                    transition: 'color 0.5s ease',
+                                    fontSize: '1.5em'
+                                }}>{link.title}</Link>
+                            </li>)}
                         </ul>
                         {/*<form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -61,15 +109,13 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
                 </div>
             </div>
         </nav>
-        <main className="container-fluid g-0 flex-grow-1" style={{
-            backgroundColor: "whitesmoke",
-            paddingTop: "7vh",
-            minHeight: "90vh",
-        }}>
+        <main className="container-fluid g-0 flex-grow-1" >
             {children}
         </main>
 
-        <footer className="bd-footer py-4 py-md-5 bg-body-tertiary">
+        <footer className="bd-footer py-4 py-md-5 bg-body-tertiary" style={{
+            backgroundColor: "rgba(0,0,0,0.5)",
+        }}>
             <div className="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
                 <div className="row">
                     <div className="col-lg-3 mb-3">
@@ -143,6 +189,6 @@ export default function Wrapper({children}: PropsWithChildren<FC>) {
             </div>
         </footer>
 
-    </>
+    </div>
 
 }
