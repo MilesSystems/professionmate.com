@@ -3403,7 +3403,7 @@ button:disabled,
 }
 
 #menu .close {
-    background-image: url("images/close.svg");
+    background-image: url("/src/assets/images/close.svg");
     background-position: 4.85em 1em;
     background-repeat: no-repeat;
     border: 0;
@@ -3522,7 +3522,7 @@ body.is-menu-visible #menu {
 }
 
 #header nav > ul > li > a.menuToggle:after {
-    background-image: url("images/bars.svg");
+    background-image: url("/src/assets/images/bars.svg");
     background-position: right center;
     background-repeat: no-repeat;
     content: '';
@@ -3673,7 +3673,7 @@ body.is-menu-visible #menu {
 }
 
 #banner .more:after {
-    background-image: url("images/arrow.svg");
+    background-image: url("/src/assets/images/arrow.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
