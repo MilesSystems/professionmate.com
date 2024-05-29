@@ -2,9 +2,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build src/index.html --public-url ./",
-    "githooks": "git config core.hooksPath .githooks && chmod +x .githooks/*",
-    "postinstall": "npm run githooks"
+    "build": "parcel build src/index.html --public-url ./"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
