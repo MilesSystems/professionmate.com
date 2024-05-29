@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef, PropsWithChildren, CSSProperties} from 'react';
+import {useState, useEffect, useRef, PropsWithChildren, CSSProperties, HTMLAttributes} from 'react';
 
 export enum eParallaxStyle {
     FIXED,
@@ -9,11 +9,15 @@ interface ParallaxProps {
     height?: string;
     backgroundImage?: string;
     parallaxStyle?: eParallaxStyle;
+    style?: CSSProperties,
+    className?:string
 }
 
 const Parallax: React.FC<PropsWithChildren<ParallaxProps>> = (
     {
         height = '50vh',
+        className = '',
+        style = {},
         backgroundImage,
         children,
         parallaxStyle = eParallaxStyle.FIXED
@@ -46,16 +50,17 @@ const Parallax: React.FC<PropsWithChildren<ParallaxProps>> = (
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    let style: CSSProperties = {
+    let parallaxStyles: CSSProperties = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundAttachment: parallaxStyle === eParallaxStyle.FIXED ? 'fixed' : 'scroll',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundColor: 'transparent',
         height: height,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        ...style,
     };
 
     const parallaxSpeed = 0.2;
@@ -63,22 +68,24 @@ const Parallax: React.FC<PropsWithChildren<ParallaxProps>> = (
 
     switch (parallaxStyle) {
         case eParallaxStyle.FIXED:
-            style.backgroundPosition = 'center';
+            parallaxStyles.backgroundPosition = 'center';
            // style.backgroundPositionY = `calc( ${offset * parallaxSpeed}px)`;
             break;
         case eParallaxStyle.SCROLL:
             // This value affects the speed of the parallax effect
             // You might need to adjust the multiplier to get the desired effect
-            style.backgroundPositionY = `calc(25% + ${offset * parallaxSpeed}px)`;
-            style.backgroundSize = '125%'
+            parallaxStyles.backgroundPositionY = `calc(50% + ${offset * parallaxSpeed}px)`;
+            parallaxStyles.backgroundSize = '200%'
             break;
     }
 
 
 
     return (
-        <div ref={parallaxRef} style={style}>
+        <div className={className} ref={parallaxRef} style={parallaxStyles}>
+
             {children}
+
         </div>
     );
 };

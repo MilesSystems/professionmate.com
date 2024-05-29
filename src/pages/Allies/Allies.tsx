@@ -1,8 +1,4 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import dalle from "assets/dalle15.webp";
-import Parallax, {eParallaxStyle} from "src/components/Parallax";
-import {serviceList} from "src/data/services";
-
+import DataAllies from "src/data/allies";
 
 
 export const ALLIES = 'allies/'
@@ -10,54 +6,28 @@ export const ALLIES = 'allies/'
 export default function Allies() {
 
 
-    return <Parallax height={'100vh'} backgroundImage={dalle} parallaxStyle={eParallaxStyle.FIXED}>
-        <div style={{
-            overflowX: "scroll",
-        }}>
-            <div className={'col right-col d-flex flex-nowrap'}>
-                {serviceList.map((service, index) => {
-                    return <div className={'float-div'}>
-                        <div className={'card m-2'} key={index} style={{
-                            minWidth: '400px',
-                            minHeight: '600px',
-                            backgroundColor: 'rgba(0,0,0,0.8)'
-                        }}>
-                            <Parallax height={'200px'} backgroundImage={service.image} parallaxStyle={eParallaxStyle.FIXED}>
-                                <h3 style={{
-                                    color: 'white',
-                                    textShadow: '2px 2px 4px #000000'
-                                }}>{service.title}</h3>
-                            </Parallax>
-                            <div className={'card-body'}>
-                                <div className={'row d-flex justify-content-center'}>
-                                    <div style={{
-                                        backgroundColor: 'grey', /* Set your desired shade of grey here */
-                                        borderRadius: '50%',     /* Makes the div circular */
-                                        width: '100px',           /* Set the width as desired */
-                                        height: '100px',          /* Set the height as desired */
-                                        display: 'flex',
-                                        justifyContent: 'center', /* Centers the icon horizontally */
-                                        alignItems: 'center',     /* Centers the icon vertically */
-                                        marginBottom: '20px'     /* Adjusts the position of the icon */
-                                    }}>
-                                        <FontAwesomeIcon
-                                            icon={service.icon}
-                                            size={'4x'}/>
-                                    </div>
-                                </div>
-                                <p style={{
-                                    color: 'white',
-                                    textShadow: '2px 2px 4px #000000'
-                                }}>
-                                    {service.description}
-                                </p>
-                            </div>
-                            <div className={'card-footer'}>
-                            </div>
-                        </div>
-                    </div>
-                })}
-            </div>
+    return <section id="three" className="wrapper style1 special">
+        <div className="inner">
+            <header className="major">
+                <h2>We partner with the best organizations to maximize your job search!</h2>
+                <p>Our strategic alliances with top-tier organizations across various industries empower us to enhance
+                    your job search experience significantly. By leveraging our extensive network and industry
+                    connections, we ensure your resume gets the visibility it deserves, putting your name at the
+                    forefront of the hiring process. Whether you're seeking opportunities in technology, finance,
+                    healthcare, or any other field, our partnerships enable us to match you with the most coveted
+                    positions available. We are dedicated to providing you with unparalleled access to exclusive job
+                    openings, ensuring your career advancement is both swift and seamless. Trust us to open doors to
+                    opportunities that might otherwise remain out of reach, making your job search not only efficient
+                    but also remarkably effective.</p>
+
+            </header>
+            <ul className="features">
+                {DataAllies.map((ally, index) =>
+                    <li key={index} className={`icon solid fa-${ally.icon.iconName}`}>
+                        <h3>{ally.name}</h3>
+                        <img src={ally.image} alt={ally.name} />
+                    </li>)}
+            </ul>
         </div>
-    </Parallax>
+    </section>
 }
